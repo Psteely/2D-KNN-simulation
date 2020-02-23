@@ -16,7 +16,7 @@ class Spot {
         ellipse(this.x, this.y, 20, 20);
     }
 
-    calcDistance(x_,y_) {
+    calcDistance(x_, y_) {
         this.distance = dist(this.x, this.y, x_, y_);
     }
 
@@ -27,21 +27,26 @@ class Spot {
         line(this.x, this.y, mouseX, mouseY);
     }
 
-
 }
 
 function getColour(c_) {
+    let alpha;
+    if (coverageI.checked) {
+        alpha = 100;
+    } else alpha = 255;
+
+
     if (c_ == 'r' || c_ == 0)
-        return color(255, 0, 0);
+        return color(255, 0, 0, alpha);
 
     if (c_ == 'g' || c_ == 1)
-        return color(0, 255, 0);
+        return color(0, 255, 0, alpha);
 
     if (c_ == 'b' || c_ == 2)
-        return color(0, 0, 255);
+        return color(0, 0, 255, alpha);
 
     if (c_ == 'p' || c_ == 3)
-        return color(255, 192, 203);
+        return color(255, 192, 203, alpha);
 
     if (c_ == 'w')
         return color(255);

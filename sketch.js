@@ -2,37 +2,71 @@ let Spots = [];
 let SpotsK = [];
 let counts = [0, 0, 0, 0, ];
 let K = 5;
+let coverageI
 
 function setup() {
-  canvas = createCanvas(1000, 800);
+  canvas = createCanvas(600, 400);
   canvas.parent('canvas');
-  
+
 
 
 }
 
 function draw() {
-  background(0);
 
-  let coverageI = document.getElementById("coverage");
+
+  coverageI = document.getElementById("coverage");
   // console.log(coverageI.checked);
+
+  if (coverageI.checked) {
+    let hc;
+    background(0);
+    for (let r = 0; r < width; r++) {
+      // const element = array[r];
+      for (let c = 0; c < height; c++) {
+        for (const s of Spots) {
+
+          s.calcDistance(r, c);
+
+
+        }
+        const cloneSpots = [...Spots];
+        SpotsK = cloneSpots.sort(shortestKs);
+        SpotsK.splice(K);
+
+        hc = highestColour();
+        let col = getColour(hc);
+        set(r, c, col);
+
+
+      }
+
+    }
+    updatePixels();
+    for (const s of Spots) {
+      s.show();
+    }
   
-  for (const s of Spots) {
-    s.show();
-    s.calcDistance(mouseX,mouseY);
+
+
+  } else {
+    background(0);
+    for (const s of Spots) {
+      s.show();
+      s.calcDistance(mouseX, mouseY);
+    }
+    const cloneSpots = [...Spots];
+    SpotsK = cloneSpots.sort(shortestKs);
+    SpotsK.splice(K);
+
+    let hc = highestColour();
+
+
+
+    for (const s of SpotsK) {
+      s.showLine(hc);
+    }
   }
-  const cloneSpots = [...Spots];
-  SpotsK = cloneSpots.sort(shortestKs);
-  SpotsK.splice(K);
-
-  let hc = highestColour();
-  //console.log(hc);
-
-
-  for (const s of SpotsK) {
-    s.showLine(hc);
-  }
-  
 }
 
 function keyPressed() {
@@ -67,21 +101,21 @@ function highestColour() {
   let highest = -Infinity;
   let index = Infinity;
   for (let i = 0; i < counts.length; i++) {
-    if (counts[i] >highest) {
+    if (counts[i] > highest) {
       highest = counts[i];
       index = i;
     }
   }
-   //console.log(highest,index);
-   if (highest <= K/2) {
+  //console.log(highest,index);
+  if (highest <= K / 2) {
     return 'w';
   } else return index;
   // if (highest === 0) { return 'r';}
   // if (highest === 1) { return 'g';}
   // if (highest === 2) { return 'b';}
   // if (highest === 3) { return 'p';}
-  
-  
+
+
 }
 
 function shortestKs(a, b) {
