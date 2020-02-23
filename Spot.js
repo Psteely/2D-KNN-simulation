@@ -5,37 +5,44 @@ class Spot {
         this.y = y;
         this.colour = c;
         this.color = getColour(this.colour)
+        this.distance;
 
     }
 
     show() {
-        
+
         fill(this.color);
         noStroke();
         ellipse(this.x, this.y, 20, 20);
     }
-     
-    showLine() {
-        
-        stroke(this.color);
-        //fill(this.colour);
+
+    calcDistance(x_,y_) {
+        this.distance = dist(this.x, this.y, x_, y_);
+    }
+
+    showLine(c_) {
+
+        stroke(getColour(c_));
         strokeWeight(2);
-        line (this.x,this.y,mouseX,mouseY);
+        line(this.x, this.y, mouseX, mouseY);
     }
 
 
 }
 
 function getColour(c_) {
-    if (c_ == 'r')
+    if (c_ == 'r' || c_ == 0)
         return color(255, 0, 0);
 
-    if (c_ == 'g')
+    if (c_ == 'g' || c_ == 1)
         return color(0, 255, 0);
 
-    if (c_ == 'b')
+    if (c_ == 'b' || c_ == 2)
         return color(0, 0, 255);
 
-    if (c_ == 'p')
+    if (c_ == 'p' || c_ == 3)
         return color(255, 192, 203);
+
+    if (c_ == 'w')
+        return color(255);
 }
