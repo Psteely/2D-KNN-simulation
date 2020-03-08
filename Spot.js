@@ -5,6 +5,7 @@ class Spot {
         this.y = y;
         this.colour = c;
         this.color = getColour(this.colour)
+        this.color.setAlpha(255);
         this.distance;
 
     }

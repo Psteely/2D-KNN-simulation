@@ -1,8 +1,10 @@
 let Spots = [];
 let SpotsK = [];
 let counts = [0, 0, 0, 0, ];
-let K = 5;
+let K = 3;
 let coverageI
+
+let state = "start";
 
 function setup() {
   canvas = createCanvas(600, 400);
@@ -21,8 +23,9 @@ function draw() {
   if (coverageI.checked) {
     let hc;
     background(0);
+
     for (let r = 0; r < width; r++) {
-      // const element = array[r];
+     
       for (let c = 0; c < height; c++) {
         for (const s of Spots) {
 
