@@ -1,29 +1,35 @@
 <!DOCTYPE html>
 <html lang="">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>steely test</title>
-      <title>sketch5.js</title>
-  </head>
 
-  <link rel="stylesheet" type="text/css" href="reset.css">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>steely test</title>
+</head>
 
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <script src="https://cdn.jsdelivr.net/npm/p5@0.10.2/lib/p5.min.js"></script>
-    <script src="sketch.js" type="text/javascript"></script>
-    <script src="Spot.js" type="text/javascript"></script>
-  
-  </head>
-  <body>
-    
-    <h1>2D KNN simulation</h1>
+<link rel="stylesheet" type="text/css" href="reset.css">
 
-    <p> KNN canvas</p>
-    <div class="main_area">
-    <input type="checkbox" id="coverage"> </input>
-    <label for="coverage"> Show coverage</label>
-    <p id = "canvas"></p>
+<link rel="stylesheet" type="text/css" href="style.css">
+<script src="https://cdn.jsdelivr.net/npm/p5@0.10.2/lib/p5.min.js"></script>
+<script src="sketch.js" type="text/javascript"></script>
+<script src="Spot.js" type="text/javascript"></script>
+
+</head>
+
+<body>
+  <div class="wrapper">
+    <div class="header_bar">
+
+      <h1>2D KNN simulation</h1>
+
+      <p> KNN canvas</p>
     </div>
-  </body>
+    <div class="main_area">
+      <input class = "coverage" type="checkbox" id="coverage"> </input>
+      <label class = "coverage" for="coverage"> Show coverage</label>
+      <p id="canvas"></p>
+    </div>
+  </div>
+</body>
+
 </html>

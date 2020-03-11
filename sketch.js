@@ -7,7 +7,7 @@ let coverageI
 let state = "start";
 
 function setup() {
-  canvas = createCanvas(600, 400);
+  canvas = createCanvas(800, 800);
   canvas.parent('canvas');
 
 
